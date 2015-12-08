@@ -1,3 +1,7 @@
+// SALCI -Sensor Array Light Controlled Instrument
+// Created by Peter Dunham and Cameron Dasti
+//
+
 // MultiButtonMIDI.ino
 // Driving MIDI using a Multiple Buttons
 // Rob Ives 2012
