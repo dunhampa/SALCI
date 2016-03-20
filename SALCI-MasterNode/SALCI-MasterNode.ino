@@ -1,14 +1,19 @@
-// SALCI -Sensor Array Light Controlled Instrument
-// Created by Peter Dunham and Cameron Dasti
-//
+// SALCI Master Code 
+// Sensor Array Light Controlled Instrument
 
+//created by Peter Dunham, Cameron Dashti, and Brian Rupert 
+
+//panel.h needs to be included
+
+
+//MIDI Interface provided by:
 // MultiButtonMIDI.ino
 // Driving MIDI using a Multiple Buttons
 // Rob Ives 2012
 // This code is released into the Public Domain.
 
-#include <MIDI.h>
-#include <Serial.h>
+#include "MIDI.h"
+//#include <Serial.h>
 #include <Wire.h>
 #include "panel.h"
 #include <string.h>
@@ -77,9 +82,11 @@ void  setup() //The Setup Loop
     memcpy(Panel2->lastval,lastval,12*sizeof(boolean));
     memcpy(Panel3->lastval,lastval,12*sizeof(boolean));
     
-    calibrate(Panel1);
+    //calibrate(Panel1);
+    calibrateSelf(Panel1);
     calibrate(Panel2);
     calibrate(Panel3);
+   // calibrateSelf(Panel1);
     
    // Serial.println(Panel1->ambient[0]);
     
@@ -111,14 +118,15 @@ void loop() //the main loop
 {
     //Structs to hold all options for panel
   
-    getPanelData(Panel1);
+    //getPanelData(Panel1);
+    getSelfData(Panel1);
     generateMidi(Panel1);
     
     
     getPanelData(Panel2);
     generateMidi(Panel2);
     
-    getPanelData(Panel3);
+  getPanelData(Panel3);
     generateMidi(Panel3);
     
     delay(50);
@@ -284,4 +292,21 @@ boolean parseConfig() {
     
 }
 
+void getSelfData(PANEL* singlePanel)
+{
+  int i;
+  for( i = 0; i < 12; i++)
+  {
+        singlePanel->data[i] = analogRead(i);
+  }
+}
+void calibrateSelf(PANEL* p) {
+   
+    int i = 0;
+  
+
+    
+    for(i=0; i< 12; i++)
+      p->ambient[i] = analogRead(i);   
+}
 
