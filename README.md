@@ -1,8 +1,7 @@
 # SALCI
 Sensor Array Light Controlled Instrument
 
-Click on image below for quick demo on YouTube:
+This code can be compiled and uploaded using the Arduino IDE. 
 
-Making a small change to try something in git. Change two.
-
-[![SALCI Image](https://github.com/dunhampa/SALCI/blob/master/content/SALCIThumb.png)](https://youtu.be/_78uYfG3qJk "SALCI On YouTube")
+Using Arduino hardware (Mega 2560) a music network can be created
+with music notes delivered over MIDI protocol.
