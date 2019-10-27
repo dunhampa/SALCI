@@ -17,7 +17,7 @@ boolean pintog[12]={0,0,0,0,0,0,0,0,0,0,0,0};
 boolean lastval[12]={1,1,1,1,1,1,1,1,1,1,1,1};
 
 //array of midi notes for each panel - expecting 3
-int keyval[12]={65,59,57,69,67,60,62,64,65,59,57,69};
+int keyval[12]={48,53,55,69,67,60,62,64,65,59,57,69};
 
 //had some bad ones //bottom with usb and charger side
 int anInsBottom[12]={0,1,2,3,4,5,6,7,8,9,10,12};
@@ -45,10 +45,10 @@ void  setup() //The Setup Loop
     Panel1->toggle =1;
 
     //Setting Keyvalues
-    memcpy(Panel1->keyval,keyval,12*sizeof(int));
-    memcpy(Panel1->pintog,pintog,12*sizeof(boolean));
-    memcpy(Panel1->lastval,lastval,12*sizeof(boolean));
-    memcpy(Panel1->anIns,anInsBottom,12*sizeof(int));
+    memcpy(Panel1->keyval,keyval,arraySize*sizeof(int));
+    memcpy(Panel1->pintog,pintog,arraySize*sizeof(boolean));
+    memcpy(Panel1->lastval,lastval,arraySize*sizeof(boolean));
+    memcpy(Panel1->anIns,anInsBottom,arraySize*sizeof(int));
     
     calibrateSelf(Panel1);
     delay(500);
@@ -67,7 +67,7 @@ void loop() //the main loop
     
 
     
-    delay(200);
+    delay(100);
     
 
 }
@@ -83,7 +83,7 @@ void generateMidi (PANEL* singlePanel){
 
    int i;
    
-   for(i=0; i<12; i++)
+   for(i=0; i<arraySize; i++)
     {
       
       //Setting up toggle option:
@@ -125,7 +125,7 @@ void generateMidi (PANEL* singlePanel){
 void getSelfData(PANEL* singlePanel)
 {
   int i;
-  for( i = 0; i < 12; i++)
+  for( i = 0; i < arraySize; i++)
   {
         singlePanel->data[i] = analogRead(singlePanel->anIns[i]);
   }
@@ -134,7 +134,7 @@ void calibrateSelf(PANEL* p) {
    
     int i = 0;
   
-    for(i=0; i< 12; i++){
+    for(i=0; i< arraySize; i++){
       p->ambient[i] = analogRead(p->anIns[i]);   
       Serial.print("Value for");
       //String mystring = String(i, DEC);
