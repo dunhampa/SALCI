@@ -8,6 +8,9 @@ with music notes delivered over MIDI protocol.
 
 ![]( https://github.com/dunhampa/SALCI/blob/master/content/SALCIThumb.png)
 
+# Parts List
+
+![https://store.arduino.cc/usa/mega-2560-r3]( https://github.com/dunhampa/SALCI/blob/master/content/arduino_mega2560.jpg)
 
 
 
