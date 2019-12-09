@@ -10,7 +10,7 @@ with music notes delivered over MIDI protocol.
 
 # Parts List
 
-![https://store.arduino.cc/usa/mega-2560-r3]( https://github.com/dunhampa/SALCI/blob/master/content/arduino_mega2560.jpg)
+![https://store.arduino.cc/usa/mega-2560-r3]( https://github.com/dunhampa/SALCI/blob/master/content/arduino_mega2560.jpg&s=200)
 
 
 
