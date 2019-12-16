@@ -1,18 +1,15 @@
-// SALCI Master Code 
+// SALCI Master Node Code 
 // Sensor Array Light Controlled Instrument
 
 //created by Peter Dunham, Cameron Dashti, and Brian Rupert 
 
-//panel.h needs to be included
-
-
-//MIDI Interface provided by:
+// Referenced:
 // MultiButtonMIDI.ino
 // Driving MIDI using a Multiple Buttons
 // Rob Ives 2012
 // This code is released into the Public Domain.
 
-#include "MIDI.h"
+#include <MIDI.h>
 //#include <Serial.h>
 #include <Wire.h>
 #include "panel.h"
@@ -30,6 +27,16 @@ boolean lastvalB;
 int keyval[12]={65,59,57,69,67,60,62,64,71,72,74,76};
 int keyval1[12]={24,26,28,29,31,33,35,36,38,40,41,43};
 int keyval2[12]={45,47,48,50,52,53,55,57,59,60,62,64};
+
+//had some bad ones //bottom with usb and charger side
+int anInsBottom[12]={0,1,2,3,4,5,6,7,8,9,10,12};
+//middle is good
+int anInsMiddle[12]={0,1,2,3,4,5,6,7,8,9,10,11};
+int anInsTop[12]={0,1,2,3,4,6,7,8,9,10,11,12};
+
+
+
+
 byte icdata [16];
 byte icdataB [24];
 int allPanelsData[3][12];
@@ -81,6 +88,11 @@ void  setup() //The Setup Loop
      memcpy(Panel1->lastval,lastval,12*sizeof(boolean));
     memcpy(Panel2->lastval,lastval,12*sizeof(boolean));
     memcpy(Panel3->lastval,lastval,12*sizeof(boolean));
+
+
+memcpy(Panel1->anIns,anInsTop,arraySize*sizeof(int));
+memcpy(Panel2->anIns,anInsMiddle,arraySize*sizeof(int));
+memcpy(Panel3->anIns,anInsBottom,arraySize*sizeof(int));
     
     //calibrate(Panel1);
     calibrateSelf(Panel1);
@@ -225,7 +237,7 @@ void generateMidi (PANEL* singlePanel){
       if(singlePanel->toggle)
       {
         //only actively set pintog if toggle option is false
-        singlePanel->pintog[i]= (singlePanel->lastval[i] ^ (singlePanel->data[i]>singlePanel->ambient[i]+55));
+        singlePanel->pintog[i]= (singlePanel->lastval[i] ^ (singlePanel->data[i]>singlePanel->ambient[i]+150));
       }//75 was good
       else
       {
@@ -234,7 +246,7 @@ void generateMidi (PANEL* singlePanel){
        }
         
        
-       if (singlePanel->data[i]>singlePanel->ambient[i]+55)
+       if (singlePanel->data[i]>singlePanel->ambient[i]+150)
        {
             singlePanel->lastval[i]=1;
             if(singlePanel->pintog[i])
@@ -309,4 +321,3 @@ void calibrateSelf(PANEL* p) {
     for(i=0; i< 12; i++)
       p->ambient[i] = analogRead(i);   
 }
-
