@@ -16,9 +16,28 @@ with music notes delivered over MIDI protocol.
 
 # Parts List
 
+### One Or More Arduinos
+This has been tested with Arduino Mega2560 but will work with other Arduinos with some modifications required.  Sensor count will be limited by the board's available Analog inputs
+
 <a href="#">
-<img src="https://github.com/dunhampa/SALCI/blob/master/content/arduino_mega2560.jpg" width="300">
+<img src="https://github.com/dunhampa/SALCI/blob/master/content/arduino_mega2560.jpg" width="600">
 </a>
+
+
+### A Photocell For Each Sensor 
+Max number limited by Analog Inputs on board
+
+<a href="https://www.sparkfun.com/products/11508">
+<img src="https://github.com/dunhampa/SALCI/blob/master/content/Mini_Photocell.jpg" width="300">
+</a>
+
+### 10K Resistor For Each Sensor 
+Note that the link is for a package of resistors.
+
+<a href="https://www.sparkfun.com/products/9088">
+<img src="https://github.com/dunhampa/SALCI/blob/master/content/10k_resistor.jpg" width="300">
+</a>
+
 
 # Debug Setup
 
