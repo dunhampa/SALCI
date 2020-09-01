@@ -38,6 +38,16 @@ Note that the link is for a package of resistors.
 <img src="https://github.com/dunhampa/SALCI/blob/master/content/10k_resistor.jpg" width="300">
 </a>
 
+# Circuit
+
+This image (generated with Fritzing) shows the basic circuits used on the hardware. Each sensor is using a 10k voltage divider since the dark sensor resistance is at 10k. If the photocell resistor (sensor) has a different resistance the resistor should match the photocell for the most dynamic range. In the layout below only some of the analog inputs circuits are shown. The voltage divider circuit should be/can use repeated for each analog input that you want to you.
+
+<a href="#">
+<img src="https://github.com/dunhampa/SALCI/blob/master/content/SALCI_Layout.png">
+</a>
+
+
+
 
 # Debug Setup
 
