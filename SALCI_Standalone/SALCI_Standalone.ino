@@ -14,14 +14,35 @@
 #include <string.h>
 
 
+// 15 14 13 12
+// 11 10  9  8
+//  7  6  5  4
+//  3  2  1  0
 
-//boolean pintog[16]={1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
-boolean pintog[16]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+// 120 108 96 84
+// 72  60  48 36
+// 24  125 113 101 
+// 89  77  65  53
+
+// 120 108 96 84
+// 120 108 72 48
+// 125 113 101 89
+// 125 113 77  65
+
+
+
+boolean pintog[16]={1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+//boolean pintog[16]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 boolean lastval[16]={1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
 
-int keyval[16]={65,59,57,69,67,60,62,64,71,72,74,76,45,47,48,50};
+//int keyval[16]={65,59,57,69,67,60,62,64,71,72,74,76,45,47,48,50};
+//int keyval[16]={53,65,77,89,101,113,125,24,36,48,60,72,84,96,108,120};
+
+//Just Cs and Fs
+int keyval[16]={65,77,77,65,101,101,101,101,72,72,89,84,96,89,89};
+
 //int keyval1[12]={24,26,28,29,31,33,35,36,38,40,41,43};
-//int keyval2[12]={45,47,48,50,52,53,55,57,59,60,62,64};
+//int keyval[16]={45,47,48,50,52,53,55,57,59,60,62,64,24,26,28,29};
 
 PANEL* Panel1;
  
@@ -101,7 +122,7 @@ void generateMidi (PANEL* singlePanel, int changeTrigger){
             singlePanel->lastval[i]=1;
             if(singlePanel->pintog[i])
             {
-              MIDI.sendNoteOn(singlePanel->keyval[i],map(singlePanel->data[i],750, 1023, 65, 127),singlePanel->channel);  
+              MIDI.sendNoteOn(singlePanel->keyval[i],map(singlePanel->data[i],750, 1023, 100, 127),singlePanel->channel);  
             }
         }
         else
