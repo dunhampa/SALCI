@@ -81,3 +81,24 @@ And second connection:
 ```
 sudo screen /dev/cu.usbserial-A1081D55 9600 –L
 ```
+
+# See Dual Serial Monitor Scripts
+
+https://geekinc.ca/using-screen-as-a-serial-terminal-on-mac-os-x/
+
+Above seemed ot have lags, so adjusted:
+
+```
+ls /dev/tty.*
+```
+
+Then use list to 
+
+```
+screen /dev/tty.usbmodem142301 115200
+ ```
+ 
+ the tty over cu seemed to return faster.
+ But had to force close "screen" in Activity Monitor when I had some interference.
+ 
+ See picture from today that shows the connection
