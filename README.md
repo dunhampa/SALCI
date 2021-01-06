@@ -102,3 +102,7 @@ screen /dev/tty.usbmodem142301 115200
  But had to force close "screen" in Activity Monitor when I had some interference.
  
  See picture from today that shows the connection
+
+<a href="#">
+<img src="https://github.com/dunhampa/SALCI/blob/master/content/ConverterConnections.jpg">
+</a>
