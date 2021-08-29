@@ -52,7 +52,7 @@ void  setup() //The Setup Loop
   
     MIDI.begin(); //initialise midi library
     delay(1000); 
-    Serial.begin(115200);
+    //Serial.begin(115200);
     delay(500);
 
   
